@@ -1,14 +1,14 @@
 let myTodo = [
-    // {
-    //     'id': 1,
-    //     'task': 'Bring Milk',
-    //     'isComplete': false
-    // },
-    // {
-    //     'id': 2,
-    //     'task': 'Bring Biscuit',
-    //     'isComplete': true
-    // },
+    {
+        'id': 1,
+        'task': 'Bring Milk',
+        'isComplete': false
+    },
+    {
+        'id': 2,
+        'task': 'Bring Biscuit',
+        'isComplete': true
+    },
 ];
 
 function refreshTodo() {
@@ -21,7 +21,7 @@ function refreshTodo() {
         let clickable = document.createElement("button");
         clickable.innerHTML = task;
         clickable.id = `task-${id}`;
-        clickable.className = "btn btn-custom";
+        clickable.className = "btn";
         clickable.setAttribute("onclick", `updateTodo(event, ${i})`);
         list.appendChild(clickable);
         list.className = `list_task ${isComplete ? "done" : "notDone"}`;
@@ -33,6 +33,9 @@ function updateTodo({ target }, i){
     console.log(target.id, i);
     let flag = myTodo[i].isComplete;
     myTodo[i].isComplete = !flag;
+    if(myTodo[i].isComplete){
+        popup();
+    }
     console.log(myTodo[i]);
     let parent = document.getElementById(target.id).parentElement;
     parent.className = `list_task ${myTodo[i].isComplete ? "done" : "notDone"}`;
@@ -49,4 +52,12 @@ function createTodo({ target }){
     console.log(newTodo);
     myTodo = [...myTodo, newTodo];
     refreshTodo();
+}
+
+function popup(){
+    document.getElementById('popup').style.cssText = 'display: flex; justify-content: center;';
+    document.getElementById('popup').innerHTML = "Well Done🔥💯";
+    setTimeout(() => {
+        document.getElementById('popup').style.display = 'none';
+    }, 1500);
 }
