@@ -1,0 +1,32 @@
+*{
+    font-family: 'Nunito Sans', sans-serif;
+
+    /* Un-selectable text */
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+}
+
+body{
+    padding: 0;
+    overflow: hidden;
+}
+
+#App{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#toDo{
+    text-align: center;
+    padding-left: 0 !important;
+}
+
+.list_task{
+    list-style-type: none;
+    
+}

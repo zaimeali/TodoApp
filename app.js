@@ -1,18 +1,20 @@
 let myTodo = [
-    {
-        'id': 1,
-        'task': 'Bring Milk',
-        'isComplete': false
-    },
-    {
-        'id': 2,
-        'task': 'Bring Biscuit',
-        'isComplete': true
-    },
+    // {
+    //     'id': 1,
+    //     'task': 'Bring Milk',
+    //     'isComplete': false
+    // },
+    // {
+    //     'id': 2,
+    //     'task': 'Bring Biscuit',
+    //     'isComplete': true
+    // },
 ];
 
 function refreshTodo() {
     let myList = document.getElementById('toDo');
+
+    document.getElementById('toDo').innerHTML = '';
 
     myTodo.map(({id, task, isComplete}, i) => {
         let list = document.createElement("li");
@@ -22,18 +24,29 @@ function refreshTodo() {
         clickable.className = "btn btn-custom";
         clickable.setAttribute("onclick", `updateTodo(event, ${i})`);
         list.appendChild(clickable);
-        list.className = isComplete ? "done" : "notDone";
+        list.className = `list_task ${isComplete ? "done" : "notDone"}`;
         myList.appendChild(list);
     });
 }
 
-function updateTodo({target}, i){
+function updateTodo({ target }, i){
     console.log(target.id, i);
     let flag = myTodo[i].isComplete;
     myTodo[i].isComplete = !flag;
     console.log(myTodo[i]);
     let parent = document.getElementById(target.id).parentElement;
-    parent.className = myTodo[i].isComplete ? "done" : "notDone";
+    parent.className = `list_task ${myTodo[i].isComplete ? "done" : "notDone"}`;
 }
 
-
+function createTodo({ target }){
+    console.log(target.value);
+    let newTodo = {
+        'id': myTodo.length + 1,
+        'task': target.value,
+        'isComplete': false
+    };
+    target.value = '';
+    console.log(newTodo);
+    myTodo = [...myTodo, newTodo];
+    refreshTodo();
+}
