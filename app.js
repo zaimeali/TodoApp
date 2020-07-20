@@ -1,14 +1,14 @@
 let myTodo = [
-    {
-        'id': 1,
-        'task': 'Bring Milk',
-        'isComplete': false
-    },
-    {
-        'id': 2,
-        'task': 'Bring Biscuit',
-        'isComplete': true
-    },
+    // {
+    //     'id': 1,
+    //     'task': 'Bring Milk',
+    //     'isComplete': false
+    // },
+    // {
+    //     'id': 2,
+    //     'task': 'Bring Biscuit',
+    //     'isComplete': true
+    // },
 ];
 
 function refreshTodo() {
