@@ -99,11 +99,7 @@ input::placeholder{
 .btn:focus {
     outline: none;
     box-shadow: none;
-    transform: scale(1) !important;
-}
-
-.btn:active{
-    transform: scale(1) !important;
+    /* transform: scale(1) !important; */
 }
 
 .done .btn{
